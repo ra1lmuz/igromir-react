@@ -1,4 +1,6 @@
 import Catalog from "../components/Catalog/Catalog";
+import Distribution from "../components/Distribution/Distribution";
+import Promotion from "../components/Promotion/Promotion";
 import Slider from "../components/Slider/Slider";
 
 const HomePage = () => {
@@ -6,6 +8,8 @@ const HomePage = () => {
         <>
         <Slider />
         <Catalog />
+        <Promotion />
+        <Distribution />
         </>
     );
 }

@@ -7,7 +7,9 @@ const Catalog = () => {
     const [products, setProducts] = useState(PRODUCTS);
     const [query, setQuery] = useState("");
 
-    const filteredProducts = products.filter((item) => item.name.toLowerCase().includes(query));
+    const filteredProductsDiscount = products.filter((item) => item.discount == 0);
+    const filteredProducts = filteredProductsDiscount.filter((item) => item.name.toLowerCase().includes(query));
+
 
     const onChangeQuery = (event) => {
         setQuery(event.target.value.toLowerCase());

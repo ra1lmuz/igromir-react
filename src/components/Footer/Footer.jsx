@@ -1,16 +1,13 @@
-import Logo from "./Logo/Logo";
+import Logo from "../Header/Logo/Logo";
 import { NavLink } from "react-router-dom";
 import Basketicon from "../../assets/basket.png";
 import Homeicon from "../../assets/home.png";
 import Catalogicon from "../../assets/catalog.png";
-import Balanceicon from "../../assets/ruble.png";
-import formatMoney from "../../utils/formatMoney";
+import Licenseicon from "../../assets/license.png";
 
-
-
-const Header = () => {
+const Footer = () => {
     return (
-        <header className="header">
+        <footer className="section footer">
             <NavLink to="/">
                 <Logo />
             </NavLink>
@@ -37,25 +34,17 @@ const Header = () => {
                     </div>
                 </NavLink>
             </nav>
-            
-            <div className="header-balance">
-                <img src={Balanceicon} alt="Balance" />
-                <div>
-                    Баланс: <span>{formatMoney(12880)}</span>
-                </div>
-            </div>
 
-            <div className="header-btn">
-                <NavLink to="/">
-                    <div>Вход</div>
-                </NavLink>
-
-                <NavLink to="/">
-                    <div>Регистрация</div>
+            <div className="footer-license">
+                <NavLink>
+                    <div>
+                        <img src={Licenseicon} alt="License" />
+                            Лицензионное соглашение
+                    </div>
                 </NavLink>
             </div>
-        </header>
-    );
-};
+        </footer>
+    )
+}
 
-export default Header;
+export default Footer;

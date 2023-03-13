@@ -1,7 +1,7 @@
-import product1 from "../assets/product.png";
-import product2 from "../assets/product2.png";
-import product3 from "../assets/product3.png";
-import product4 from "../assets/product4.png";
+import product1 from "../assets/csgo.jpg";
+import product2 from "../assets/apex.jpg";
+import product3 from "../assets/pubg.jpg";
+import product4 from "../assets/dota.jpg";
 import product5 from "../assets/gta.jpg";
 import product6 from "../assets/cyberpunk.jpg";
 import product7 from "../assets/snowrunner.jpg";
@@ -67,7 +67,7 @@ const PRODUCTS = [
     {
         id: 8,
         subtitle: "Прохождение",
-        name: "Rdr2",
+        name: "Red Dead Redemption 2",
         preview: product8,
         price: 500,
         discount: 15,

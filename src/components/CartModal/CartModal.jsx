@@ -44,7 +44,11 @@ const CartModal = () => {
 
                 <div className="modal-body">
                     <div className="cart-items">
-                        ...
+                        {
+                            cart.cartItems.map((item) => {
+                                return <CartItem key={item.id} item={item} />
+                            })
+                        }
                     </div>
                 </div>
 

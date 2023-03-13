@@ -711,6 +711,19 @@ a {
 
   &-body {
     overflow-y: scroll;
+    padding-right: 10px;
+  }
+
+  &-body::-webkit-scrollbar {
+    width: 8px;
+    background-color: rgba(0, 0, 0, 0.274);
+    border-radius: 8px;
+    height: 200px;
+  }
+
+  &-body::-webkit-scrollbar-thumb {
+    background: #ff731e;
+    border-radius: 8px;
   }
 
   &-footer {
@@ -725,7 +738,7 @@ a {
           flex-direction: row;
           align-items: center;
           gap: 5px;
-          font-weight: 500;
+          font-weight: 400;
           font-size: 32px;
           line-height: 37px;
           color: #ffffff;
@@ -773,6 +786,7 @@ a {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      align-items: flex-start;
 
       div {
         display: flex;
@@ -782,7 +796,7 @@ a {
         font-size: 32px;
         line-height: 37px;
         color: #ffffff;
-        gap: 5px;
+        gap: 10px;
       }
 
       h2 {
@@ -803,6 +817,71 @@ a {
         line-height: 18px;
         color: #ffffff;
         text-transform: uppercase;
+        font-family: "Ubuntu";
+      }
+    }
+  }
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  .cart-item {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    background-color: #3b3d42;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 8px;
+
+    .cart-item__img {
+      height: 151px;
+
+      img {
+        width: 173px;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+    }
+
+    .cart-item__info {
+      padding: 30px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      h3 {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 18px;
+        color: #ffffff;
+      }
+
+      .cart-item__price {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 5px;
+
+        span {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 18px;
+          color: #ffffff;
+        }
+      }
+
+      button {
+        position: absolute;
+        background-color: #3B3D42;
+        border: none;
+        cursor: pointer;
+        bottom: 15px;
+        right: 20px;
       }
     }
   }

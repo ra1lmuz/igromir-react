@@ -10,67 +10,64 @@ import { ModalContext, CartContext } from "../../pages/Root";
 import cartTotal from "../../utils/cartTotal";
 
 const CartButton = () => {
-    console.log(CartContext);
-    const {toggleModal} = useContext(ModalContext);
-    const {cartItems} = useContext(CartContext);
+  const { toggleModal } = useContext(ModalContext);
 
-    const total = cartTotal(cartItems);
-
-    
-
-    return (
-        <button onClick={toggleModal} className="modal-view">
-            <div>
-                <img src={Basketicon} alt="Basket" />
-                Корзина
-            </div>
-        </button>
-    )
-}
+  return (
+    <button onClick={toggleModal} className="modal-view">
+      <div>
+        <img src={Basketicon} alt="Basket" />
+        Корзина
+      </div>
+    </button>
+  );
+};
 
 const Header = () => {
-    return (
-        <header className="header">
-            <NavLink to="/">
-                <Logo />
-            </NavLink>
+  const { cartItems } = useContext(CartContext);
 
-            <nav>
-                <NavLink to="/">
-                    <div>
-                    <img src={Homeicon} alt="Home" />
-                        Главная
-                    </div>
-                </NavLink>
+  const total = cartTotal(cartItems);
+  return (
+    <header className="header">
+      <NavLink to="/">
+        <Logo />
+      </NavLink>
 
-                <NavLink to="/">
-                    <div>
-                    <img src={Catalogicon} alt="Catalog" />
-                        Каталог
-                    </div>
-                </NavLink>
+      <nav>
+        <NavLink to="/">
+          <div>
+            <img src={Homeicon} alt="Home" />
+            Главная
+          </div>
+        </NavLink>
 
-                <CartButton />
-            </nav>
-            
-            <div className="header-balance">
-                <img src={Balanceicon} alt="Balance" />
-                <div>
-                    Баланс: <span>{formatMoney(12880)}</span>
-                </div>
-            </div>
+        <NavLink to="/">
+          <div>
+            <img src={Catalogicon} alt="Catalog" />
+            Каталог
+          </div>
+        </NavLink>
 
-            <div className="header-btn">
-                <NavLink to="/">
-                    <div>Вход</div>
-                </NavLink>
+        <CartButton />
+      </nav>
 
-                <NavLink to="/">
-                    <div>Регистрация</div>
-                </NavLink>
-            </div>
-        </header>
-    );
+      <div className="header-balance">
+        <img src={Balanceicon} alt="Balance" />
+        <div>
+          Баланс: <span>{formatMoney(total)}</span>
+        </div>
+      </div>
+
+      <div className="header-btn">
+        <NavLink to="/">
+          <div>Вход</div>
+        </NavLink>
+
+        <NavLink to="/">
+          <div>Регистрация</div>
+        </NavLink>
+      </div>
+    </header>
+  );
 };
 
 export default Header;

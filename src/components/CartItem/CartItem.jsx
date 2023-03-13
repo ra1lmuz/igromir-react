@@ -3,10 +3,13 @@ import { useContext } from "react";
 import formatMoney from '../../utils/formatMoney';
 import del from '../../assets/del.svg';
 import { CartContext } from '../../pages/Root';
+import calculatePercent from '../../utils/calculatePercent';
 
 const CartItem = ({ item }) => {
     
     const { removeCartItemById } = useContext(CartContext);
+    
+    const price = calculatePercent(item.price, item.discount);
 
     return (
         <div className="cart-item">
@@ -16,7 +19,7 @@ const CartItem = ({ item }) => {
             <div className="cart-item__info">
                 <h3>{item.name}</h3>
                 <div className="cart-item__price">
-                    <span>{formatMoney(product.price)}</span>
+                    <span>{formatMoney(price)}</span>
                     <img src={ruble} alt="ruble" />
                 </div>
 

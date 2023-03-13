@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const PromotionProduct = ({product}) => {
     return (
-        <NavLink to="/">
+        <NavLink to={`/game/${product.id}`}>
             <div className="product-promotion">
                 <div className="product-promotion-img">
                     <img src={product.preview} alt="promotion-img" />

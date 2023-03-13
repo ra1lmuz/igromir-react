@@ -64,6 +64,16 @@ a {
   }
 }
 
+.modal-view {
+  border: none;
+  background-color: #212329;
+  outline: none;
+  color: #fff;
+  font-size: 16px;
+  font-family: "Ubuntu";
+  cursor: pointer;
+}
+
 .logo {
   display: flex;
   flex-direction: row;
@@ -368,7 +378,7 @@ a {
     align-items: center;
     justify-content: center;
 
-    &>div {
+    & > div {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -406,10 +416,10 @@ a {
   background: #3b3d42;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
   border-radius: 8px;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 
   &:hover {
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
     transform: translateY(-5px);
   }
 
@@ -476,24 +486,24 @@ a {
 
   .product-promotion {
     position: relative;
-    transition: all .3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 
     &:hover {
-      transition: all .3s ease-in-out;
+      transition: all 0.3s ease-in-out;
       transform: translateY(-5px);
     }
 
     .product-promotion-sale {
       position: absolute;
       bottom: 0;
-      background: linear-gradient(90deg, #F29D26 0%, #E63545 100%);
+      background: linear-gradient(90deg, #f29d26 0%, #e63545 100%);
       border-radius: 8px;
       text-align: center;
       width: 100%;
       font-weight: 500;
       font-size: 24px;
       line-height: 28px;
-      color: #FFFFFF;
+      color: #ffffff;
       padding: 6px 0;
     }
 
@@ -520,14 +530,14 @@ a {
     font-weight: 500;
     font-size: 32px;
     line-height: 37px;
-    color: #FFFFFF;
+    color: #ffffff;
   }
 
   .distribution-subtitle {
     font-weight: 400;
     font-size: 24px;
     line-height: 28px;
-    color: #FFFFFF;
+    color: #ffffff;
     padding-top: 25px;
     padding-bottom: 50px;
   }
@@ -538,7 +548,7 @@ a {
     align-items: center;
     justify-content: center;
 
-    &>div {
+    & > div {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -600,7 +610,7 @@ a {
       font-weight: 300;
       font-size: 16px;
       line-height: 18px;
-      color: #FFFFFF;
+      color: #ffffff;
     }
   }
 }
@@ -616,5 +626,184 @@ a {
     font-size: 22px;
     line-height: 26px;
     color: #ffffff;
+  }
+}
+
+// Modal
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+
+  visibility: hidden;
+  opacity: 0;
+
+  animation-name: fadeOut;
+  animation-duration: 300ms;
+  animation-iteration-count: 1;
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+
+    animation-name: fadeIn;
+    animation-duration: 300ms;
+    animation-iteration-count: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.modal {
+  display: grid;
+
+  gap: 30px;
+
+  grid-template-rows: 0.25fr 4.75fr 1fr;
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  right: 0;
+
+  max-width: 490px;
+  width: 100%;
+
+  background-color: #2e3036;
+
+  padding: 50px 40px 50px 40px;
+
+  &-header {
+    h2 {
+      font-family: "Ubuntu";
+      font-weight: 500;
+      font-size: 32px;
+      line-height: 37px;
+      color: #ffffff;
+    }
+  }
+
+  &-body {
+    overflow-y: scroll;
+  }
+
+  &-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .total {
+      .row {
+        .total-price {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          gap: 5px;
+          font-weight: 500;
+          font-size: 32px;
+          line-height: 37px;
+          color: #ffffff;
+        }
+      }
+    }
+
+    button {
+      background: linear-gradient(90deg, #e63545 0%, #f29d26 100%);
+      border-radius: 4px;
+      border: none;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 18px;
+      color: #ffffff;
+      padding: 10px;
+      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+      cursor: pointer;
+      font-family: "Ubuntu";
+    }
+  }
+}
+
+// SinglePage
+
+.games {
+  padding: 70px 0;
+
+  .game {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+
+    .game-img {
+      img {
+        width: 350px;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+    }
+
+    .game-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-weight: 500;
+        font-size: 32px;
+        line-height: 37px;
+        color: #ffffff;
+        gap: 5px;
+      }
+
+      h2 {
+        font-weight: 500;
+        font-size: 64px;
+        line-height: 74px;
+        color: #ffffff;
+      }
+
+      .add-basket {
+        background: linear-gradient(90deg, #e63545 0%, #f29d26 100%);
+        border-radius: 4px;
+        cursor: pointer;
+        border: none;
+        padding: 10px 30px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 18px;
+        color: #ffffff;
+        text-transform: uppercase;
+      }
+    }
   }
 }

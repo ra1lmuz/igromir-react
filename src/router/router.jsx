@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "../pages/Root";
 
 import HomePage from "../pages/HomePage";
+import SinglePage from "../pages/SinglePage";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
             path: "/",
             element: <HomePage />,
             index: true
+        },
+        {
+          path: '/game/:id',
+          element: <SinglePage />,
         }
     ],
   },

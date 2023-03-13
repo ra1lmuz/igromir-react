@@ -5,8 +5,28 @@ import Homeicon from "../../assets/home.png";
 import Catalogicon from "../../assets/catalog.png";
 import Balanceicon from "../../assets/ruble.png";
 import formatMoney from "../../utils/formatMoney";
+import { useContext } from "react";
+import { ModalContext, CartContext } from "../../pages/Root";
+import cartTotal from "../../utils/cartTotal";
 
+const CartButton = () => {
+    console.log(CartContext);
+    const {toggleModal} = useContext(ModalContext);
+    const {cartItems} = useContext(CartContext);
 
+    const total = cartTotal(cartItems);
+
+    
+
+    return (
+        <button onClick={toggleModal} className="modal-view">
+            <div>
+                <img src={Basketicon} alt="Basket" />
+                Корзина
+            </div>
+        </button>
+    )
+}
 
 const Header = () => {
     return (
@@ -30,12 +50,7 @@ const Header = () => {
                     </div>
                 </NavLink>
 
-                <NavLink to="/">
-                    <div>
-                    <img src={Basketicon} alt="Basket" />
-                        Корзина
-                    </div>
-                </NavLink>
+                <CartButton />
             </nav>
             
             <div className="header-balance">

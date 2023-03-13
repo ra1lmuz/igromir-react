@@ -3,8 +3,9 @@ import { NavLink } from 'react-router-dom';
 import formatMoney from '../../utils/formatMoney';
 
 const Product = ({product}) => {
+
     return (
-        <NavLink to="/">
+        <NavLink to={`/game/${product.id}`}>
             <div className="product">
                 <div className="product-img">
                     <img src={product.preview} alt="product" />
